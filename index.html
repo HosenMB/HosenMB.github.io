@@ -49,20 +49,46 @@
       flex-wrap: wrap;
     }
 
-    .profile-pic {
+    .profile-pic-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       flex-shrink: 0;
+      width: 200px;
+    }
+
+    .profile-pic {
       width: 200px;
       height: 200px;
       object-fit: cover;
       border-radius: 50%;
       border: 3px solid #004080;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+    }
+
+    .profile-info {
+      text-align: center;
+      font-size: 1rem;
+      color: #004080;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .profile-info a {
+      color: #004080;
+      text-decoration: none;
+    }
+    .profile-info a:hover {
+      text-decoration: underline;
+      color: #ffcc00;
     }
 
     .about-text {
       flex: 1;
       min-width: 250px;
       font-size: 1.15rem;
+      text-align: justify;
     }
 
     p {
@@ -75,13 +101,16 @@
         flex-direction: column;
         align-items: center;
       }
+      .profile-pic-container {
+        width: 150px;
+      }
       .profile-pic {
         width: 150px;
         height: 150px;
-        margin-bottom: 20px;
+        margin-bottom: 12px;
       }
       .about-text {
-        text-align: center;
+        text-align: justify;
       }
     }
   </style>
@@ -95,7 +124,15 @@
   </nav>
 
   <div class="profile-container">
-    <img src="mbh.jpg" alt="Md Biplob Hosen" class="profile-pic" />
+    <div class="profile-pic-container">
+      <img src="mbh.jpg" alt="Md Biplob Hosen" class="profile-pic" />
+      <div class="profile-info">
+        <div>Md Biplob Hosen</div>
+        <div>Assistant Professor</div>
+        <div><a href="mailto:mhosen1@umbc.edu">mhosen1@umbc.edu</a></div>
+      </div>
+    </div>
+
     <div class="about-text">
       <h1>About Me</h1>
       <p>
