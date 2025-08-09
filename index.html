@@ -64,6 +64,7 @@
       margin-bottom: 20px;
       text-align: center;
       line-height: 1.3;
+      white-space: pre-line; /* For line breaks */
     }
 
     aside.sidebar a.email-link {
@@ -190,9 +191,27 @@
       font-size: 2.3rem;
     }
 
+    article h2 {
+      margin-top: 25px;
+      color: #0066cc;
+      font-weight: 600;
+      border-bottom: 2px solid #004080;
+      padding-bottom: 4px;
+    }
+
     /* JUSTIFY paragraph text */
-    article p {
+    article p,
+    article ul {
       text-align: justify;
+      margin-top: 10px;
+    }
+
+    article ul {
+      padding-left: 20px;
+    }
+
+    article ul li {
+      margin-bottom: 6px;
     }
 
     /* Responsive */
@@ -247,8 +266,10 @@
   <aside class="sidebar" role="complementary">
     <img src="mbh.jpg" alt="Md Biplob Hosen" />
     <h1 class="name" title="Md Biplob Hosen">Md Biplob Hosen</h1>
-    <p class="title">Assistant Professor<br />Institute of Information Technology<br />Jahangirnagar University</p>
-    <a href="mailto:mhosen1@umbc.edu" class="email-link"><ion-icon name="mail-outline"></ion-icon> mhosen1@umbc.edu</a>
+    <p class="title">Graduate Student, Department of Information Systems,<br />University of Maryland Baltimore County<br /><br />
+      Contact: (410) 800-9881<br />
+      Email: <a href="mailto:mhosen1@umbc.edu" style="color:#ffcc00; text-decoration:none;">mhosen1@umbc.edu</a>
+    </p>
 
     <button class="cv-button" onclick="window.open('Md_Biplob_Hosen_CV.pdf', '_blank')">
       <ion-icon name="document-text-outline"></ion-icon> Academic CV
@@ -285,62 +306,151 @@
       </ul>
     </nav>
 
+    <!-- Home -->
     <article id="home" class="active" aria-label="Home">
       <h1>Home</h1>
+
       <section>
-        <h2>About Me</h2>
-        <p>
-          Hello! I’m Md Biplob Hosen, currently serving as an Assistant Professor at the Institute of Information Technology, Jahangirnagar University. I completed my B.Sc. (Honors) and M.Sc. in Information Technology at Jahangirnagar University in 2016 and 2017.
-        </p>
-        <p>
-          I started my academic career as a lecturer in the Department of Computer Science and Engineering at Daffodil International University in 2017, then joined Stamford University Bangladesh in 2018. Since February 2021, I have been proud to be part of the faculty at Jahangirnagar University.
-        </p>
-        <p>
-          Currently, I am pursuing a Ph.D. in Information Systems at the University of Maryland Baltimore County (UMBC) to deepen my expertise and contribute further to the field of Information Technology.
-        </p>
+        <h2>Academic Background</h2>
+        <ul>
+          <li>PhD in Information Systems: 2024 - continue, UMBC.</li>
+          <li>M.S. in Information Technology: 2016-2017 (Thesis Group), Jahangirnagar University, BD; Result: 3.82 / 4.00 CGPA.</li>
+          <li>B.Sc. (Hons.) in Information Technology: 2013-2016, Jahangirnagar University, BD; Result: 3.81 / 4.00 CGPA.</li>
+        </ul>
       </section>
+
+      <section>
+        <h2>Teaching Experience</h2>
+        <ul>
+          <li>Graduate Assistant, IS, UMBC [August 2024 - Continue]</li>
+          <li>Assistant Professor, IIT, JU, Savar, Dhaka, BD [November 2023 - Continue]</li>
+          <li>Lecturer, IIT, JU, Savar, Dhaka, BD [February 2021 – November 2023]</li>
+          <li>Adjunct Faculty, CSE, Sonargoan University, BD [January 2020 – December 2020]</li>
+          <li>Adjunct Faculty, ICT, Bangladesh University of Professionals [January 2019 – December 2019]</li>
+          <li>Lecturer, CSE, Stamford University Bangladesh [September 2018 – February 2020]</li>
+          <li>Lecturer, CSE, Daffodil International University, BD [May 2017 – December 2017]</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Awarded Research Funding</h2>
+        <ul>
+          <li>JU Research Grant 2023-2024: A Machine Learning Assisted Web Based Student Performance Monitoring System.</li>
+          <li>JU Research Grant 2022-2023: Privacy Leakage Identification and Risk Assessment for Android Applications.</li>
+          <li>JU Research Grant 2021-2022: Evaluating the Impact of Telecommunication Service Quality in Bangladesh on Online Education during Covid-19.</li>
+        </ul>
+      </section>
+
       <section>
         <h2>News & Updates</h2>
         <ul>
-          <li>Published a new paper on Information Systems in 2025.</li>
-          <li>Presented at XYZ conference, 2024.</li>
+          <li>Accepted paper: Modeling Socially Constructed Knowledge using Multimodal Machine Learning at AIED 2025, Italy.</li>
+          <li>Accepted paper: Assessing Competitive Programmers for Industry Placement at IEEE QPAIN 2025.</li>
           <li>Organized workshop on AI literacy in 2023.</li>
         </ul>
       </section>
     </article>
 
+    <!-- Research -->
     <article id="research" aria-label="Research">
-      <h1>Research</h1>
-      <p>
-        My research focuses on Information Systems and related interdisciplinary topics...
-      </p>
+      <h1>Research Publications</h1>
+      <ul>
+        <li>Md Biplob Hosen et al., Modeling Socially Constructed Knowledge using Multimodal Machine Learning: A Case Study in K-12 AI Literacy Education Classroom, 26th International Conference on Artificial Intelligence in Education, Italy, 2025 (Accepted).</li>
+        <li>Md Biplob Hosen et al., From Code to Career: Assessing Competitive Programmers for Industry Placement, 2025 IEEE International Conference on Quantum Photonics, Artificial Intelligence, and Networking (QPAIN). (Accepted).</li>
+        <li>Masud, A., Hosen, M.B., Habibullah, M., Anannya, M. and Kaiser, M.S., 2025. Image captioning in Bengali language using visual attention. PloS one, 20(2), p.e0309364.</li>
+        <li>Shahid, S.B., Yousuf, M.A., Hosen, M.B., Ahmed, S. and Ali Moni, M., 2024, October. Bias in Deep Learning Skin Cancer Detection: Parallel Residual Convolution Network Classification and Racial Bias Quantification: Skin Cancer Racial Bias. In Proceedings of the 3rd International Conference on Computing Advancements (pp. 993-1000).</li>
+        <li>Hosen, M.B., Ahmed, S., Akter, B. and Anannya, M., 2024, December. Impact, Causation and Prediction of Socio-Academic and Economic Factors in Exam-centric Student Evaluation Measures using Machine Learning and Causal Analysis. In 2024 13th International Conference on Electrical and Computer Engineering (ICECE) (pp. 321-326). IEEE.</li>
+        <li>Saha, Tapash Kumar, Md. Fazlul Karim Patwary, Faria Ahmed, Md. Biplob Hosen, and Rashed Mazumder. 2024. “Effects of Movement Restrictions on Consumer Consumption”. Journal of Applied Engineering and Technological Science (JAETS) 6 (1):416-28.</li>
+        <li>Anannya, M., Most, S.K., Hosen, M.B., Ahmed, S., Hossain, F. and Kaiser, M.S., 2023. Eligible Personal Loan Applicant Selection using Federated Machine Learning Algorithm. International Journal of Advanced Computer Science and Applications, 14(8).</li>
+        <li>Hosen, M.B., Farin, N.J., Anannya, M., Islam, K. and Uddin, M.S., 2022, May. Quality analysis of pathao ride-sharing service in bangladesh. In Proceedings of International Joint Conference on Advances in Computational Intelligence: IJCACI 2021 (pp. 597-611). Singapore: Springer Nature Singapore.</li>
+        <li>Hosen, M.B., 2022. Impact of Telecommunication Service Quality in Bangladesh on Online Education during Covid-19. International Journal of Modern Education and Computer Science, 11(6), p.65.</li>
+        <li>Md. Biplob Hosen , Ashfaq Ali Shafin and Mohammad Abu Yousuf, Performance Analysis of Machine Learning Techniques in Network Intrusion Detection, Journal of Information Technology (JUJIT), 11, 2022.</li>
+        <li>M. B. Hosen, M. M. H. Mridha and M. A. Hamza, "Secondary User Channel Selection in Cognitive Radio Network Using Adaptive Method," 2018 3rd International Conference for Convergence in Technology (I2CT), Pune, India, 2018, pp. 1-6, doi: 10.1109/I2CT.2018.8529521.</li>
+      </ul>
+
+      <h2>Reviewer</h2>
+      <ul>
+        <li>6th International Joint Conference on Advances in Computational Intelligence (IJCACI 2022).</li>
+        <li>IEEE World Conference on Applied Intelligence and Computing (AIC 2022).</li>
+      </ul>
+
+      <h2>Skills Highlight</h2>
+      <ul>
+        <li>Document Preparation System: LaTeX.</li>
+        <li>Programming Language: Python, Java, PHP, JavaScript, C and C++.</li>
+        <li>Language: IELTS-7.0 (Listening: 8.0, Reading: 7.0, Writing: 6.5, Speaking: 7.0).</li>
+      </ul>
     </article>
 
+    <!-- Professional Experience -->
     <article id="professional" aria-label="Professional Experience">
-      <h1>Experience</h1>
-      <p>
-        - Lecturer, Department of CSE, Daffodil International University, 2017<br />
-        - Lecturer, Stamford University Bangladesh, 2018<br />
-        - Assistant Professor, Institute of Information Technology, Jahangirnagar University, 2021 - Present
-      </p>
+      <h1>Teaching Experience</h1>
+      <ul>
+        <li>Graduate Assistant, IS, UMBC [August 2024 - Continue]</li>
+        <li>Assistant Professor, IIT, JU, Savar, Dhaka, BD [November 2023 - Continue]</li>
+        <li>Lecturer, IIT, JU, Savar, Dhaka, BD [February 2021 – November 2023]</li>
+        <li>Adjunct Faculty, CSE, Sonargoan University, BD [January 2020 – December 2020]</li>
+        <li>Adjunct Faculty, ICT, Bangladesh University of Professionals [January 2019 – December 2019]</li>
+        <li>Lecturer, CSE, Stamford University Bangladesh [September 2018 – February 2020]</li>
+        <li>Lecturer, CSE, Daffodil International University, BD [May 2017 – December 2017]</li>
+      </ul>
     </article>
 
+    <!-- Education -->
     <article id="education" aria-label="Education">
       <h1>Education</h1>
-      <p>
-        - B.Sc. (Honors) in Information Technology, Jahangirnagar University, 2016<br />
-        - M.Sc. in Information Technology, Jahangirnagar University, 2017<br />
-        - Ph.D. candidate, Information Systems, UMBC (currently pursuing)
-      </p>
+      <ul>
+        <li>PhD in Information Systems: 2024 - continue, UMBC.</li>
+        <li>M.S. in Information Technology: 2016-2017 (Thesis Group), Jahangirnagar University, BD; Result: 3.82 / 4.00 CGPA.</li>
+        <li>B.Sc. (Hons.) in Information Technology: 2013-2016, Jahangirnagar University, BD; Result: 3.81 / 4.00 CGPA.</li>
+      </ul>
     </article>
 
+    <!-- Achievements -->
     <article id="achievements" aria-label="Achievements">
-      <h1>Achievements</h1>
-      <p>
-        - Recipient of ABC Research Award, 2024.<br />
-        - Best Paper Award at XYZ Conference, 2023.<br />
-        - Successfully supervised 10+ student theses.
-      </p>
+      <h1>Achievements & More</h1>
+
+      <section>
+        <h2>Scholarships & Awards</h2>
+        <ul>
+          <li>National Science & Technology (N.S.T.) Fellowship (2018) for M.S. Research, BD.</li>
+          <li>Regular Merit-Based Annual Scholarships (2013-2016) from Jahangirnagar University.</li>
+          <li>Education Board Scholarship for Higher Secondary (HSC) Result.</li>
+          <li>Education Board Scholarship for Secondary (SSC) Result.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Training</h2>
+        <ul>
+          <li>Teacher’s Induction Program on Tools for Quality Improvement. Organized by IQAC, Jahangirnagar University.</li>
+          <li>Faculty Training Program Organized by IQAC, Stamford University Bangladesh.</li>
+          <li>Training on Advanced Mobile Game Development Organized by the ICT Division.</li>
+          <li>Foundation of Software Testing & Automation Organized by IIT, Jahangirnagar University.</li>
+          <li>Web Application Development (PHP) Certified by Basis Institute of Training and Management.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Supervision</h2>
+        <ul>
+          <li>M.S. (2022-2023): Faria Ahmed (Project: Building a Recommendation System through Advanced Customer Segmentation).</li>
+          <li>M.S. (2021-2022): Md. Uthba Bin Anowar Binoy (Project: A Machine Learning Assisted Web Based Student Performance Monitoring System).</li>
+          <li>M.S. (2020-2021): Md. Habibullah (Project: Image and Video Captioning in Bengali Language Using Visual Attention).</li>
+          <li>Student Advisor for different undergraduate academic years.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Extra-Curricular Activities</h2>
+        <ul>
+          <li>Former House Tutor, Student Residential Hall, Jahangirnagar University.</li>
+          <li>Former Joint Secretary of Jahangirnagar University IT Society (JUITS).</li>
+          <li>Worked at Jahangirnagar University IEEE Student Branch.</li>
+          <li>Worked at Jahangirnagar University Science Club (JUSC).</li>
+          <li>Former Vice-President of Jahangirnagar University Bogra Student Association.</li>
+        </ul>
+      </section>
     </article>
   </div>
 
