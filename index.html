@@ -11,14 +11,17 @@
       padding: 0 20px 40px;
       color: #333;
       background-color: #f9f9f9;
+      line-height: 1.6;
     }
+
     nav {
       background-color: #004080;
       padding: 12px 20px;
       border-radius: 8px;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       text-align: center;
     }
+
     nav a {
       color: #fff;
       text-decoration: none;
@@ -27,26 +30,59 @@
       font-size: 1.1rem;
       transition: color 0.3s ease;
     }
+
     nav a:hover {
       color: #ffcc00;
     }
+
     h1 {
       color: #004080;
       font-size: 2.8rem;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
-    p {
-      line-height: 1.65;
+
+    .profile-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 30px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .profile-pic {
+      flex-shrink: 0;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #004080;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 250px;
       font-size: 1.15rem;
     }
-    .profile-pic {
-      display: block;
-      max-width: 200px;
-      width: 100%;
-      border-radius: 50%;
-      margin: 0 auto 25px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      border: 3px solid #004080;
+
+    p {
+      margin-bottom: 1.2em;
+    }
+
+    /* Responsive: stack on narrow screens */
+    @media (max-width: 600px) {
+      .profile-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .profile-pic {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 20px;
+      }
+      .about-text {
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -58,17 +94,20 @@
     <a href="professional.html">Professional</a>
   </nav>
 
+  <div class="profile-container">
     <img src="mbh.jpg" alt="Md Biplob Hosen" class="profile-pic" />
-
-  <h1>About Me</h1>
-  <p>
-    Hello! I’m Md Biplob Hosen, currently serving as an Assistant Professor at the Institute of Information Technology, Jahangirnagar University. I completed my B.Sc. (Honors) and M.Sc. in Information Technology at Jahangirnagar University in 2016 and 2017.
-  </p>
-  <p>
-    I started my academic career as a lecturer in the Department of Computer Science and Engineering at Daffodil International University in 2017, then joined Stamford University Bangladesh in 2018. Since February 2021, I have been proud to be part of the faculty at Jahangirnagar University.
-  </p>
-  <p>
-    Currently, I am pursuing a Ph.D. in Information Systems at the University of Maryland Baltimore County (UMBC) to deepen my expertise and contribute further to the field of Information Technology.
-  </p>
+    <div class="about-text">
+      <h1>About Me</h1>
+      <p>
+        Hello! I’m Md Biplob Hosen, currently serving as an Assistant Professor at the Institute of Information Technology, Jahangirnagar University. I completed my B.Sc. (Honors) and M.Sc. in Information Technology at Jahangirnagar University in 2016 and 2017.
+      </p>
+      <p>
+        I started my academic career as a lecturer in the Department of Computer Science and Engineering at Daffodil International University in 2017, then joined Stamford University Bangladesh in 2018. Since February 2021, I have been proud to be part of the faculty at Jahangirnagar University.
+      </p>
+      <p>
+        Currently, I am pursuing a Ph.D. in Information Systems at the University of Maryland Baltimore County (UMBC) to deepen my expertise and contribute further to the field of Information Technology.
+      </p>
+    </div>
+  </div>
 </body>
 </html>
