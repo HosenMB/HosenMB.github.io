@@ -21,22 +21,18 @@
 
     main {
       display: flex;
+      min-height: 100vh;
       max-width: 1200px;
       margin: auto;
       background: white;
       box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
       overflow: hidden;
-      /* No min-height here, as sidebar is fixed */
     }
 
     /* Sidebar */
     aside.sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
       width: 260px;
-      height: 100vh;
       background: #002f6c;
       color: #fff;
       padding: 20px;
@@ -44,6 +40,11 @@
       flex-direction: column;
       align-items: center;
       box-sizing: border-box;
+
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
       overflow-y: auto;
       z-index: 10;
     }
@@ -62,13 +63,12 @@
       margin: 0;
       font-weight: 600;
       text-align: center;
-      color: white; /* Ensure name color is white */
+      color: white; /* Ensure white color for name */
     }
 
-    /* Smaller text for other info */
     aside.sidebar .title {
-      font-size: 0.9rem;
-      margin: 5px 0 20px;
+      font-size: 0.85rem; /* smaller */
+      margin: 5px 0 15px;
       font-weight: 400;
       text-align: center;
       line-height: 1.3;
@@ -76,16 +76,11 @@
     }
 
     aside.sidebar .contact-info {
-      font-size: 0.85rem;
+      font-size: 0.75rem; /* smaller */
       line-height: 1.4;
       text-align: center;
       margin-bottom: 20px;
       color: #ccc;
-    }
-
-    aside.sidebar .contact-info a {
-      color: #89c2ff;
-      text-decoration: none;
     }
 
     aside.sidebar button.cv-button {
@@ -131,10 +126,11 @@
 
     /* Main Content */
     .main-content {
-      margin-left: 260px; /* Width of sidebar */
+      flex-grow: 1;
+      padding: 30px 40px;
+      margin-left: 260px; /* Leave space for fixed sidebar */
       height: 100vh;
       overflow-y: auto;
-      padding: 30px 40px;
     }
 
     nav.navbar {
@@ -267,6 +263,60 @@
     ion-icon {
       vertical-align: middle;
     }
+
+    /* Responsive adjustments for mobile */
+    #sidebarToggle {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 30;
+      background: #0053a6;
+      border: none;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 18px;
+      cursor: pointer;
+      display: none;
+    }
+
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 20;
+    }
+
+    @media screen and (max-width: 768px) {
+      #sidebarToggle {
+        display: block;
+      }
+
+      aside.sidebar {
+        left: -260px;
+        transition: left 0.3s ease;
+        z-index: 25;
+      }
+
+      aside.sidebar.open {
+        left: 0;
+      }
+
+      .main-content {
+        margin-left: 0 !important;
+        padding: 20px;
+        height: 100vh;
+        overflow-y: auto;
+      }
+
+      body.sidebar-open {
+        overflow: hidden;
+      }
+    }
   </style>
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -274,15 +324,21 @@
 </head>
 
 <body>
+  <!-- Hamburger menu toggle button for mobile -->
+  <button id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false" aria-controls="sidebar">&#9776;</button>
+
+  <!-- Overlay to cover page content when sidebar open on mobile -->
+  <div id="overlay"></div>
+
   <main>
     <!-- Sidebar -->
-    <aside class="sidebar" aria-label="Sidebar with personal info and navigation">
+    <aside class="sidebar" id="sidebar" aria-label="Sidebar with personal info and navigation">
       <img src="mbh.jpg" alt="Md Biplob Hosen" />
       <h1 class="name">Md Biplob Hosen</h1>
-      <p class="title">Graduate Student, IS<br />UMBC</p>
+      <p class="title">Graduate Student, IS Department ,<br />UMBC</p>
       <p class="contact-info">
         Contact: (410) 800-9881<br />
-        Email: <a href="mailto:mhosen1@umbc.edu">mhosen1@umbc.edu</a>
+        Email: <a href="mailto:mhosen1@umbc.edu" style="color: #89c2ff;">mhosen1@umbc.edu</a>
       </p>
 
       <button class="cv-button" onclick="window.open('Resume of Md Biplob Hosen.pdf', '_blank')" aria-label="Open Academic CV">
@@ -291,12 +347,14 @@
 
       <ul class="social-list" aria-label="Social links">
         <li>
-          <a href="https://scholar.google.com/citations?user=x2KTWwsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">
+          <a href="https://scholar.google.com/citations?user=x2KTWwsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer"
+            aria-label="Google Scholar">
             <ion-icon name="school-outline"></ion-icon>
           </a>
         </li>
         <li>
-          <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit" target="_blank"
+            rel="noopener noreferrer" aria-label="LinkedIn">
             <ion-icon name="logo-linkedin"></ion-icon>
           </a>
         </li>
@@ -391,15 +449,13 @@
           <li>Adjunct Faculty, CSE, Sonargoan University, BD [January 2020 – December 2020]</li>
           <li>Adjunct Faculty, ICT, Bangladesh University of Professionals [January 2019 – December 2019]</li>
           <li>Lecturer, CSE, Stamford University Bangladesh [September 2018 – February 2020]</li>
-          <li>Lecturer, CSE, Daffodil International University, BD [May 2017 – December 2017]</li>
+          <li>Lecturer, Computer Science & Engineering, BGMEA University of Fashion & Technology [September 2017 – July 2018]</li>
         </ul>
 
-        <h2>Supervision</h2>
+        <h2>Industry Experience</h2>
         <ul>
-          <li>M.S. (2022-2023): Faria Ahmed (Project: Building a Recommendation System through Advanced Customer Segmentation)</li>
-          <li>M.S. (2021-2022): Md. Uthba Bin Anowar Binoy (Project: A Machine Learning Assisted Web Based Student Performance Monitoring System)</li>
-          <li>M.S. (2020-2021): Md. Habibullah (Project: Image and Video Captioning in Bengali Language Using Visual Attention)</li>
-          <li>Student Advisor for different undergraduate academic years</li>
+          <li>Senior Software Engineer, Pridesys IT Limited [March 2016 – August 2017]</li>
+          <li>Software Engineer, Pridesys IT Limited [March 2014 – February 2016]</li>
         </ul>
       </article>
 
@@ -407,78 +463,95 @@
       <article id="education" role="region" aria-label="Education section">
         <h1>Education</h1>
         <ul>
-          <li>PhD in Information Systems: 2024-continue, UMBC.</li>
-          <li>M.S. in Information Technology: 2016-2017 (Thesis Group), JU, BD; Result: 3.82 on a scale 4.00 (CGPA).</li>
-          <li>B.Sc. (Hons.) in Information Technology: 2013-2016, JU, BD; Result: 3.81 on a scale of 4.00 (CGPA).</li>
+          <li>University of Maryland Baltimore County (UMBC) [2024 - Continue]</li>
+          <li>Jahangirnagar University (JU), Bangladesh (PhD research) [2023 - Continue]</li>
+          <li>Jahangirnagar University (JU), Bangladesh (M.Sc. CSE) [2017 - 2019]</li>
+          <li>University of Dhaka, Bangladesh (B.Sc. CSE) [2010 - 2014]</li>
         </ul>
       </article>
 
       <!-- Achievements -->
-      <article id="achievements" role="region" aria-label="Achievements & More section">
-        <h1>Achievements & More</h1>
-
-        <section>
-          <h2>Scholarships & Awards</h2>
-          <ul>
-            <li>National Science & Technology (N.S.T.) Fellowship (2018) for M.S. Research, BD.</li>
-            <li>Regular Merit-Based Annual Scholarships (2013-2016) from Jahangirnagar University.</li>
-            <li>Education Board Scholarship for Higher Secondary (HSC) Result.</li>
-            <li>Education Board Scholarship for Secondary (SSC) Result.</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Training</h2>
-          <ul>
-            <li>Teacher’s Induction Program on Tools for Quality Improvement - IQAC, Jahangirnagar University.</li>
-            <li>Faculty Training Program - IQAC, Stamford University Bangladesh.</li>
-            <li>Training on Advanced Mobile Game Development - ICT Division.</li>
-            <li>Foundation of Software Testing & Automation - Institute of Information Technology, Jahangirnagar University.</li>
-            <li>Web Application Development (PHP) - Basis Institute of Training and Management.</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Reviewer</h2>
-          <ul>
-            <li>6th International Joint Conference on Advances in Computational Intelligence (IJCACI 2022)</li>
-            <li>IEEE World Conference on Applied Intelligence and Computing (AIC 2022)</li>
-          </ul>
-        </section>
+      <article id="achievements" role="region" aria-label="Achievements section">
+        <h1>Achievements</h1>
+        <ul>
+          <li>Research Publications in top conferences & journals</li>
+          <li>IEEE Member since 2022</li>
+          <li>Published papers in Scopus & WoS indexed journals</li>
+          <li>Participation in international conferences</li>
+        </ul>
       </article>
 
       <!-- Misc -->
       <article id="misc" role="region" aria-label="Miscellaneous section">
-        <!-- Removed Miscellaneous <h1> title as requested -->
-        <section>
-          <h2>Extra-Curricular Activities</h2>
-          <ul>
-            <li>Former House Tutor, Student Residential Hall, Jahangirnagar University.</li>
-            <li>Former Joint Secretary of Jahangirnagar University IT Society (JUITS).</li>
-            <li>Worked at Jahangirnagar University IEEE Student Branch.</li>
-            <li>Worked at Jahangirnagar University Science Club (JUSC).</li>
-            <li>Former Vice-president of Jahangirnagar University Bogra Student Association.</li>
-          </ul>
-        </section>
+        <h1>Miscellaneous</h1>
+        <ul>
+          <li>Programming languages: Python, Java, C++, R</li>
+          <li>Technologies: Machine Learning, Data Mining, IoT, Cloud Computing</li>
+          <li>Hobbies: Reading, Traveling, Photography</li>
+        </ul>
       </article>
     </div>
   </main>
 
   <script>
-    // Simple navigation tab switching
-    const buttons = document.querySelectorAll(".navbar-link");
+    // Sidebar toggle on mobile
+    const sidebarToggle = document.getElementById("sidebarToggle");
+    const sidebar = document.querySelector("aside.sidebar");
+    const overlay = document.getElementById("overlay");
+
+    function openSidebar() {
+      sidebar.classList.add("open");
+      overlay.style.display = "block";
+      sidebarToggle.setAttribute("aria-expanded", "true");
+      document.body.classList.add("sidebar-open");
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove("open");
+      overlay.style.display = "none";
+      sidebarToggle.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("sidebar-open");
+    }
+
+    sidebarToggle.addEventListener("click", () => {
+      if (sidebar.classList.contains("open")) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+
+    overlay.addEventListener("click", closeSidebar);
+
+    // Navigation buttons switch content
+    const navButtons = document.querySelectorAll(".navbar-link");
     const articles = document.querySelectorAll("article");
 
-    buttons.forEach((btn) => {
+    navButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
-        // Remove active from buttons and articles
-        buttons.forEach((b) => b.classList.remove("active"));
+        // Remove active class from all nav buttons
+        navButtons.forEach((b) => {
+          b.classList.remove("active");
+          b.setAttribute("aria-selected", "false");
+        });
+        // Add active class to clicked button
+        btn.classList.add("active");
+        btn.setAttribute("aria-selected", "true");
+
+        // Hide all articles
         articles.forEach((art) => art.classList.remove("active"));
 
-        // Activate clicked button and corresponding article
-        btn.classList.add("active");
+        // Show selected section
         const section = btn.getAttribute("data-section");
-        document.getElementById(section).classList.add("active");
+        const activeArticle = document.getElementById(section);
+        if (activeArticle) {
+          activeArticle.classList.add("active");
+        }
+
+        // On mobile, close sidebar when a nav item clicked
+        if (window.innerWidth <= 768 && sidebar.classList.contains("open")) {
+          closeSidebar();
+        }
       });
     });
   </script>
