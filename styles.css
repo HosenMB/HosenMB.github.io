@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  display: flex;
+}
+
+aside.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  background: #002f6c;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  overflow-y: auto;
+  z-index: 15;
+}
+
+aside.sidebar h2 {
+  margin-top: 0;
+}
+
+aside.sidebar nav a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin: 10px 0;
+}
+
+aside.sidebar nav a.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.main-content {
+  margin-left: 260px;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+/* Sticky navbar inside main content */
+.main-content nav.navbar {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+  border-bottom: 2px solid #eee;
+  padding: 10px;
+}
+
+/* Sidebar toggle button - hidden on desktop */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: #002f6c;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 20;
+}
+
+@media (max-width: 768px) {
+  /* Show toggle button */
+  .sidebar-toggle {
+    display: block;
+  }
+
+  /* Sidebar hidden by default on mobile */
+  aside.sidebar {
+    left: -260px;
+    transition: left 0.3s ease;
+  }
+
+  aside.sidebar.active {
+    left: 0;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+    transition: margin-left 0.3s ease;
+  }
+
+  .main-content.sidebar-active {
+    margin-left: 260px !important;
+    width: calc(100% - 260px) !important;
+  }
+}
