@@ -21,18 +21,22 @@
 
     main {
       display: flex;
-      min-height: 100vh;
       max-width: 1200px;
       margin: auto;
       background: white;
       box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
       overflow: hidden;
+      /* No min-height here, as sidebar is fixed */
     }
 
     /* Sidebar */
     aside.sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 260px;
+      height: 100vh;
       background: #002f6c;
       color: #fff;
       padding: 20px;
@@ -40,9 +44,8 @@
       flex-direction: column;
       align-items: center;
       box-sizing: border-box;
-      height: 100vh;          /* Fixed height */
-      position: sticky;       /* Sidebar stays fixed on scroll */
-      top: 0;
+      overflow-y: auto;
+      z-index: 10;
     }
 
     aside.sidebar img {
@@ -59,24 +62,30 @@
       margin: 0;
       font-weight: 600;
       text-align: center;
-      color: white;          /* Name color white */
+      color: white; /* Ensure name color is white */
     }
 
+    /* Smaller text for other info */
     aside.sidebar .title {
-      font-size: 0.85rem;    /* smaller than name */
-      margin: 5px 0 15px;
+      font-size: 0.9rem;
+      margin: 5px 0 20px;
       font-weight: 400;
       text-align: center;
       line-height: 1.3;
-      color: #ddd;           /* slightly lighter */
+      color: #ddd;
     }
 
     aside.sidebar .contact-info {
-      font-size: 0.75rem;    /* smaller than title */
+      font-size: 0.85rem;
       line-height: 1.4;
       text-align: center;
       margin-bottom: 20px;
-      color: #ccc;           /* lighter */
+      color: #ccc;
+    }
+
+    aside.sidebar .contact-info a {
+      color: #89c2ff;
+      text-decoration: none;
     }
 
     aside.sidebar button.cv-button {
@@ -102,7 +111,7 @@
     aside.sidebar ul.social-list {
       list-style: none;
       padding: 0;
-      margin-top: auto;       /* push social list to bottom */
+      margin-top: 30px;
       display: flex;
       gap: 15px;
       justify-content: center;
@@ -122,10 +131,10 @@
 
     /* Main Content */
     .main-content {
-      flex-grow: 1;
-      padding: 30px 40px;
+      margin-left: 260px; /* Width of sidebar */
+      height: 100vh;
       overflow-y: auto;
-      max-height: 100vh;
+      padding: 30px 40px;
     }
 
     nav.navbar {
@@ -273,7 +282,7 @@
       <p class="title">Graduate Student, IS Department ,<br />UMBC</p>
       <p class="contact-info">
         Contact: (410) 800-9881<br />
-        Email: <a href="mailto:mhosen1@umbc.edu" style="color: #89c2ff;">mhosen1@umbc.edu</a>
+        Email: <a href="mailto:mhosen1@umbc.edu">mhosen1@umbc.edu</a>
       </p>
 
       <button class="cv-button" onclick="window.open('Resume of Md Biplob Hosen.pdf', '_blank')" aria-label="Open Academic CV">
@@ -440,7 +449,7 @@
 
       <!-- Misc -->
       <article id="misc" role="region" aria-label="Miscellaneous section">
-        <!-- Removed the h1 "Miscellaneous" title as requested -->
+        <!-- Removed Miscellaneous <h1> title as requested -->
         <section>
           <h2>Extra-Curricular Activities</h2>
           <ul>
