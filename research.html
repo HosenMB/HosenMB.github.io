@@ -1,1 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MB Hosen - Research</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #222;
+    }
+
+    main {
+      display: flex;
+      min-height: 100vh;
+      max-width: 1200px;
+      margin: auto;
+      background: white;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    aside.sidebar {
+      width: 260px;
+      background: #002f6c;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+    }
+
+    aside.sidebar img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 3px solid #fff;
+    }
+
+    aside.sidebar .name {
+      font-size: 1.6rem;
+      margin: 0;
+      font-weight: 600;
+      text-align: center;
+      color: white;
+    }
+
+    aside.sidebar .title {
+      font-size: 0.9rem;
+      margin: 5px 0 20px;
+      font-weight: 400;
+      text-align: center;
+      line-height: 1.3;
+      color: #ddd;
+    }
+
+    aside.sidebar .contact-info {
+      font-size: 0.8rem;
+      line-height: 1.4;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    aside.sidebar button.cv-button {
+      background: #0053a6;
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.3s ease;
+      width: 100%;
+      justify-content: center;
+    }
+
+    aside.sidebar button.cv-button:hover {
+      background: #003f82;
+    }
+
+    aside.sidebar ul.social-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 30px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      width: 100%;
+    }
+
+    aside.sidebar ul.social-list li a {
+      color: white;
+      font-size: 1.3rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    aside.sidebar ul.social-list li a:hover {
+      color: #89c2ff;
+    }
+
+    .main-content {
+      margin-left: 260px;
+      padding: 30px 40px;
+      min-height: 100vh;
+      box-sizing: border-box;
+      overflow-y: auto;
+      width: calc(100% - 260px);
+    }
+
+    nav.navbar {
+      margin-bottom: 30px;
+      border-bottom: 2px solid #eee;
+    }
+
+    nav.navbar ul.navbar-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav.navbar ul.navbar-list li.navbar-item {}
+
+    nav.navbar ul.navbar-list li a.navbar-link {
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: #222;
+      padding: 8px 0;
+      border-bottom: 3px solid transparent;
+      text-decoration: none;
+      transition: border-color 0.3s ease, color 0.3s ease;
+      display: inline-block;
+    }
+
+    nav.navbar ul.navbar-list li a.navbar-link.active,
+    nav.navbar ul.navbar-list li a.navbar-link:hover {
+      border-bottom-color: #0053a6;
+      color: #0053a6;
+      outline: none;
+    }
+
+    h1 {
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #003366;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-top: 0;
+    }
+
+    li {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 10px;
+      text-align: justify;
+    }
+
+    ion-icon {
+      vertical-align: middle;
+    }
+
+    @media (max-width: 768px) {
+      aside.sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px;
+      }
+
+      aside.sidebar img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 0;
+      }
+
+      aside.sidebar .name,
+      aside.sidebar .title,
+      aside.sidebar .contact-info,
+      aside.sidebar button.cv-button,
+      aside.sidebar ul.social-list {
+        display: none;
+      }
+
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+      }
+
+      nav.navbar ul.navbar-list {
+        justify-content: center;
+      }
+    }
+  </style>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</head>
+
+<body>
+  <main>
+    <aside class="sidebar" aria-label="Sidebar with personal info and navigation">
+      <img src="mbh.jpg" alt="Md Biplob Hosen" />
+      <h1 class="name">Md Biplob Hosen</h1>
+      <p class="title">Graduate Student, IS Department,<br />UMBC</p>
+      <p class="contact-info">
+        Contact: (410) 800-9881<br />
+        Email: <a href="mailto:mhosen1@umbc.edu" style="color: #89c2ff;">mhosen1@umbc.edu</a>
+      </p>
+
+      <button class="cv-button" onclick="window.open('Resume of Md Biplob Hosen.pdf', '_blank')" aria-label="Open Academic CV">
+        <ion-icon name="document-text-outline"></ion-icon> Academic CV
+      </button>
+
+      <ul class="social-list" aria-label="Social links">
+        <li>
+          <a href="https://scholar.google.com/citations?user=x2KTWwsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">
+            <ion-icon name="school-outline"></ion-icon>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+        </li>
+        <li>
+          <a href="https://juniv.edu/teachers/biplob.hosen" target="_blank" rel="noopener noreferrer" aria-label="Personal Website">
+            <ion-icon name="globe-outline"></ion-icon>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="main-content">
+      <nav class="navbar" role="navigation" aria-label="Primary navigation">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
+          <li class="navbar-item"><a href="research.html" class="navbar-link active" aria-current="page">Research</a></li>
+          <li class="navbar-item"><a href="professional.html" class="navbar-link">Professional</a></li>
+          <li class="navbar-item"><a href="education.html" class="navbar-link">Education</a></li>
+          <li class="navbar-item"><a href="achievements.html" class="navbar-link">Achievements</a></li>
+          <li class="navbar-item"><a href="misc.html" class="navbar-link">Misc</a></li>
+        </ul>
+      </nav>
+
+      <article role="region" aria-label="Research section">
+        <h1>Research Publications</h1>
+        <ul>
+          <li>Md Biplob Hosen et al., Modeling Socially Constructed Knowledge using Multimodal Machine Learning: A Case Study in K-12 AI Literacy Education Classroom, 26th International Conference on Artificial Intelligence in Education, Italy, 2025 (Accepted).</li>
+          <li>Md Biplob Hosen et al., From Code to Career: Assessing Competitive Programmers for Industry Placement, 2025 IEEE International Conference on Quantum Photonics, Artificial Intelligence, and Networking (QPAIN). (Accepted).</li>
+          <li>Masud, A., Hosen, M.B., Habibullah, M., Anannya, M. and Kaiser, M.S., 2025. Image captioning in Bengali language using visual attention. PloS one, 20(2), p.e0309364.</li>
+          <li>Shahid, S.B., Yousuf, M.A., Hosen, M.B., Ahmed, S. and Ali Moni, M., 2024, October. Bias in Deep Learning Skin Cancer Detection: Parallel Residual Convolution Network Classification and Racial Bias Quantification: Skin Cancer Racial Bias. In Proceedings of the 3rd International Conference on Computing Advancements (pp. 993-1000).</li>
+          <li>Hosen, M.B., Ahmed, S., Akter, B. and Anannya, M., 2024, December. Impact, Causation and Prediction of Socio-Academic and Economic Factors in Exam-centric Student Evaluation Measures using Machine Learning and Causal Analysis. In 2024 13th International Conference on Electrical and Computer Engineering (ICECE) (pp. 321-326). IEEE.</li>
+          <li>Saha, Tapash Kumar, Md. Fazlul Karim Patwary, Faria Ahmed, Md. Biplob Hosen, and Rashed Mazumder. 2024. “Effects of Movement Restrictions on Consumer Consumption”. Journal of Applied Engineering and Technological Science (JAETS) 6 (1):416-28.</li>
+          <li>Anannya, M., Most, S.K., Hosen, M.B., Ahmed, S., Hossain, F. and Kaiser, M.S., 2023. Eligible Personal Loan Applicant Selection using Federated Machine Learning Algorithm. International Journal of Advanced Computer Science and Applications, 14(8).</li>
+          <li>Hosen, M.B., Farin, N.J., Anannya, M., Islam, K. and Uddin, M.S., 2022, May. Quality analysis of pathao ride-sharing service in Bangladesh. In Proceedings of International Joint Conference on Advances in Computational Intelligence: IJCACI 2021 (pp. 597-611). Singapore: Springer Nature Singapore.</li>
+          <li>Hosen, M.B., 2022. Impact of Telecommunication Service Quality in Bangladesh on Online Education during Covid-19. International Journal of Modern Education and Computer Science, 11(6), p.65.</li>
+          <li>Md. Biplob Hosen , Ashfaq Ali Shafin and Mohammad Abu Yousuf, Performance Analysis of Machine Learning Techniques in Network Intrusion Detection, Journal of Information Technology (JUJIT), 11, 2022.</li>
+          <li>M. B. Hosen, M. M. H. Mridha and M. A. Hamza, "Secondary User Channel Selection in Cognitive Radio Network Using Adaptive Method," 2018 3rd International Conference for Convergence in Technology (I2CT), Pune, India, 2018, pp. 1-6, doi: 10.1109/I2CT.2018.8529521.</li>
+        </ul>
+      </article>
+    </div>
+  </main>
+</body>
+
+</html>
 
