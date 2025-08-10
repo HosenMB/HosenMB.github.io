@@ -5,330 +5,368 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Md Biplob Hosen - Portfolio</title>
+  <title>Md Biplob Hosen - Personal Portfolio</title>
 
-  <!-- Ionicons for icons -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    /* Reset & basics */
-    * {
-      box-sizing: border-box;
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #222;
     }
 
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
+    main {
       display: flex;
       min-height: 100vh;
-      background-color: #f9f9f9;
-      color: #333;
+      max-width: 1200px;
+      margin: auto;
+      background: white;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
     }
 
-    /* Sidebar styling */
+    /* Sidebar */
     aside.sidebar {
-      background-color: #004080;
-      color: white;
-      width: 280px;
-      padding: 30px 20px;
+      width: 260px;
+      background: #002f6c;
+      color: #fff;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: relative;
+      box-sizing: border-box;
     }
 
     aside.sidebar img {
-      border-radius: 50%;
       width: 140px;
       height: 140px;
+      border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #ffcc00;
       margin-bottom: 15px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 3px solid #fff;
     }
 
     aside.sidebar .name {
+      font-size: 1.6rem;
+      margin: 0;
       font-weight: 600;
-      font-size: 1.7rem;
-      margin-bottom: 6px;
       text-align: center;
     }
 
     aside.sidebar .title {
-      font-weight: 300;
-      font-size: 1.1rem;
-      margin-bottom: 20px;
+      font-size: 0.95rem;
+      margin: 5px 0 20px;
+      font-weight: 400;
       text-align: center;
       line-height: 1.3;
-      white-space: pre-line;
     }
 
-    aside.sidebar a.email-link {
-      color: #ffcc00;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      margin-bottom: 25px;
-      display: inline-block;
-    }
-
-    aside.sidebar a.email-link:hover {
-      text-decoration: underline;
-    }
-
-    /* Academic CV button */
-    .cv-button {
-      background-color: #ffcc00;
-      color: #004080;
-      font-weight: 600;
-      padding: 10px 18px;
-      border-radius: 8px;
-      cursor: pointer;
-      border: none;
-      width: 100%;
-      margin-bottom: 25px;
+    aside.sidebar .contact-info {
+      font-size: 0.9rem;
+      line-height: 1.4;
       text-align: center;
+      margin-bottom: 20px;
+    }
+
+    aside.sidebar button.cv-button {
+      background: #0053a6;
+      border: none;
+      color: white;
+      padding: 10px 15px;
       font-size: 1rem;
-      transition: background-color 0.3s ease;
+      cursor: pointer;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.3s ease;
+      width: 100%;
+      justify-content: center;
     }
 
-    .cv-button:hover {
-      background-color: #e6b800;
+    aside.sidebar button.cv-button:hover {
+      background: #003f82;
     }
 
-    /* Social Links */
-    .social-list {
+    aside.sidebar ul.social-list {
       list-style: none;
       padding: 0;
-      margin: 0 0 30px 0;
+      margin-top: 30px;
       display: flex;
-      gap: 20px;
+      gap: 15px;
       justify-content: center;
       width: 100%;
     }
 
-    .social-item a {
+    aside.sidebar ul.social-list li a {
       color: white;
-      font-size: 1.6rem;
+      font-size: 1.3rem;
+      text-decoration: none;
       transition: color 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
     }
 
-    .social-item a:hover {
-      color: #ffcc00;
+    aside.sidebar ul.social-list li a:hover {
+      color: #89c2ff;
     }
 
-    /* Main content area */
+    /* Main Content */
     .main-content {
-      flex: 1;
-      padding: 40px 50px;
-      max-width: 900px;
-      background: white;
-      box-shadow: 0 0 20px rgb(0 0 0 / 0.1);
+      flex-grow: 1;
+      padding: 30px 40px;
       overflow-y: auto;
     }
 
-    /* Navbar */
     nav.navbar {
-      margin-bottom: 40px;
-      border-bottom: 2px solid #004080;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #eee;
     }
 
-    nav.navbar ul {
+    nav.navbar ul.navbar-list {
       list-style: none;
       padding: 0;
       margin: 0;
       display: flex;
-      gap: 25px;
-      flex-wrap: wrap;
+      gap: 20px;
     }
 
-    nav.navbar li {
-      display: inline;
+    nav.navbar ul.navbar-list li.navbar-item {
+      /* empty */
     }
 
-    nav.navbar button {
+    nav.navbar ul.navbar-list li button.navbar-link {
       background: none;
       border: none;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
       cursor: pointer;
-      color: #004080;
-      padding: 10px 15px;
-      border-radius: 5px;
-      transition: background-color 0.25s ease, color 0.25s ease;
+      color: #222;
+      padding: 8px 0;
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.3s ease, color 0.3s ease;
     }
 
-    nav.navbar button:hover,
-    nav.navbar button.active {
-      background-color: #004080;
-      color: #fff;
+    nav.navbar ul.navbar-list li button.navbar-link.active,
+    nav.navbar ul.navbar-list li button.navbar-link:hover {
+      border-bottom-color: #0053a6;
+      color: #0053a6;
+      outline: none;
     }
 
-    /* Article sections */
     article {
       display: none;
-      font-size: 1.15rem;
-      line-height: 1.6;
+      animation: fadeIn 0.5s ease forwards;
     }
 
     article.active {
       display: block;
     }
 
-    article h1 {
-      color: #004080;
-      font-weight: 700;
-      margin-bottom: 20px;
-      font-size: 2.3rem;
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
-    article h2 {
-      margin-top: 25px;
-      color: #0066cc;
+    /* Content Styling */
+    h1 {
       font-weight: 600;
-      border-bottom: 2px solid #004080;
+      margin-bottom: 12px;
+      color: #003366;
+    }
+
+    h2 {
+      font-weight: 500;
+      margin-top: 24px;
+      margin-bottom: 8px;
+      color: #004080;
+      border-bottom: 2px solid #ddd;
       padding-bottom: 4px;
     }
 
-    /* JUSTIFY paragraph text */
-    article p,
-    article ul {
+    p,
+    li {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 10px;
       text-align: justify;
-      margin-top: 10px;
     }
 
-    article ul {
+    ul {
       padding-left: 20px;
+      margin-top: 0;
     }
 
-    article ul li {
-      margin-bottom: 6px;
+    /* Smaller font for overview info on Home page */
+    #home .overview {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: #555;
+      margin-bottom: 25px;
+      text-align: center;
+      line-height: 1.4;
     }
 
-    /* Responsive */
-    @media (max-width: 720px) {
-      body {
-        flex-direction: column;
-      }
+    /* News section styling */
+    #home .news {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: #333;
+    }
 
-      aside.sidebar {
-        width: 100%;
-        padding: 20px;
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 15px;
-        flex-wrap: wrap;
-      }
+    #home .news ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
 
-      aside.sidebar img {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 0;
-      }
+    #home .news ul li {
+      margin-bottom: 12px;
+      padding-left: 15px;
+      position: relative;
+    }
 
-      aside.sidebar .name,
-      aside.sidebar .title,
-      aside.sidebar a.email-link {
-        text-align: left;
-        flex: 1 1 100%;
-      }
+    #home .news ul li::before {
+      content: "•";
+      color: #0053a6;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
 
-      aside.sidebar .cv-button,
-      .social-list {
-        flex: 1 1 100%;
-        justify-content: flex-start;
-        margin-bottom: 15px;
-      }
+    #home .news ul li .date {
+      font-weight: 600;
+      color: #0053a6;
+      margin-right: 8px;
+    }
 
-      .main-content {
-        max-width: 100%;
-        padding: 20px;
-      }
-
-      nav.navbar ul {
-        gap: 15px;
-      }
+    /* Accessibility & Icon styling */
+    ion-icon {
+      vertical-align: middle;
     }
   </style>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
 
 <body>
+  <main>
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Sidebar with personal info and navigation">
+      <img src="mbh.jpg" alt="Md Biplob Hosen" />
+      <h1 class="name">Md Biplob Hosen</h1>
+      <p class="title">Graduate Student, Department of Information Systems,<br />University of Maryland Baltimore County</p>
+      <p class="contact-info">
+        Contact: (410) 800-9881<br />
+        Email: <a href="mailto:mhosen1@umbc.edu" style="color: #89c2ff;">mhosen1@umbc.edu</a>
+      </p>
 
-  <aside class="sidebar" role="complementary">
-    <img src="mbh.jpg" alt="Md Biplob Hosen" />
-    <h1 class="name" title="Md Biplob Hosen">Md Biplob Hosen</h1>
-    <p class="title">Graduate Student, Department of Information Systems,<br />University of Maryland Baltimore County<br /><br />
-      Contact: (410) 800-9881<br />
-      Email: <a href="mailto:mhosen1@umbc.edu" style="color:#ffcc00; text-decoration:none;">mhosen1@umbc.edu</a>
-    </p>
+      <button class="cv-button" onclick="window.open('Resume of Md Biplob Hosen.pdf', '_blank')" aria-label="Open Academic CV">
+        <ion-icon name="document-text-outline"></ion-icon> Academic CV
+      </button>
 
-    <button class="cv-button"
-      onclick="window.open('https://github.com/hosenmb/your-repo/raw/main/Resume%20of%20Md%20Biplob%20Hosen.pdf', '_blank')">
-      <ion-icon name="document-text-outline"></ion-icon> Academic CV
-    </button>
-
-    <ul class="social-list" aria-label="Social media links">
-      <li class="social-item">
-        <a href="https://scholar.google.com/citations?user=x2KTWwsAAAAJ&hl=en" target="_blank" rel="noopener"
-          aria-label="Google Scholar">
-          <ion-icon name="school-outline"></ion-icon>
-        </a>
-      </li>
-      <li class="social-item">
-        <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit" target="_blank"
-          rel="noopener" aria-label="LinkedIn">
-          <ion-icon name="logo-linkedin"></ion-icon>
-        </a>
-      </li>
-      <li class="social-item">
-        <a href="https://juniv.edu/teachers/biplob.hosen" target="_blank" rel="noopener" aria-label="Personal Website">
-          <ion-icon name="globe-outline"></ion-icon>
-        </a>
-      </li>
-      <li class="social-item">
-        <a href="https://github.com/hosenmb" target="_blank" rel="noopener" aria-label="GitHub">
-          <ion-icon name="logo-github"></ion-icon>
-        </a>
-      </li>
-    </ul>
-  </aside>
-
-  <div class="main-content" role="main">
-    <nav class="navbar" aria-label="Primary navigation">
-      <ul>
-        <li><button class="navbar-link active" data-section="home">Home</button></li>
-        <li><button class="navbar-link" data-section="research">Research</button></li>
-        <li><button class="navbar-link" data-section="professional">Experience</button></li>
-        <li><button class="navbar-link" data-section="education">Education</button></li>
-        <li><button class="navbar-link" data-section="achievements">Achievements</button></li>
+      <ul class="social-list" aria-label="Social links">
+        <li>
+          <a href="https://scholar.google.com/citations?user=x2KTWwsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">
+            <ion-icon name="school-outline"></ion-icon>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+        </li>
+        <li>
+          <a href="https://juniv.edu/teachers/biplob.hosen" target="_blank" rel="noopener noreferrer" aria-label="Personal Website">
+            <ion-icon name="globe-outline"></ion-icon>
+          </a>
+        </li>
       </ul>
-    </nav>
+    </aside>
 
-    <!-- Home -->
-    <article id="home" class="active" aria-label="Home">
-      <h1>Home</h1>
-
-      <section>
-        <h2>Academic Background</h2>
-        <ul>
-          <li>PhD in Information Systems: 2024 - continue, UMBC.</li>
-          <li>M.S. in Information Technology: 2016-2017 (Thesis Group), Jahangirnagar University, BD; Result: 3.82 / 4.00
-            CGPA.</li>
-          <li>B.Sc. (Hons.) in Information Technology: 2013-2016, Jahangirnagar University, BD; Result: 3.81 / 4.00 CGPA.
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Navigation -->
+      <nav class="navbar" role="navigation" aria-label="Primary navigation">
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <button class="navbar-link active" data-section="home" aria-controls="home" aria-selected="true">Home</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-section="research" aria-controls="research">Research</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-section="professional" aria-controls="professional">Professional</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-section="education" aria-controls="education">Education</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-section="achievements" aria-controls="achievements">Achievements</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-section="misc" aria-controls="misc">Misc</button>
           </li>
         </ul>
-      </section>
+      </nav>
 
-      <section>
+      <!-- Sections -->
+
+      <!-- Home -->
+      <article id="home" class="active" role="region" aria-label="Home section">
+        <div class="overview">
+          <p>
+            I am Md Biplob Hosen, currently a Graduate Student in the Department of Information Systems at the University of Maryland Baltimore County. My research and professional work focus on information systems and technology, including teaching and mentoring students.
+          </p>
+          <p>
+            <small>
+              Graduate Student, Department of Information Systems,<br />
+              University of Maryland Baltimore County<br />
+              Contact: (410) 800-9881<br />
+              Email: <a href="mailto:mhosen1@umbc.edu" style="color:#0053a6;">mhosen1@umbc.edu</a>
+            </small>
+          </p>
+        </div>
+
+        <section class="news" aria-label="News and updates">
+          <h2>Updates</h2>
+          <ul>
+            <li><span class="date">[Nov '24]</span> Submitted our manuscript of my undergraduate thesis to an A1 conference.</li>
+            <li><span class="date">[Nov '24 @Pridesys IT]</span> Automated Continuous Delivery Pipeline using Github Actions reusing workflows across multiple.</li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- Research -->
+      <article id="research" role="region" aria-label="Research section">
+        <h1>Research Publications</h1>
+        <ul>
+          <li>Md Biplob Hosen et al., Modeling Socially Constructed Knowledge using Multimodal Machine Learning: A Case Study in K-12 AI Literacy Education Classroom, 26th International Conference on Artificial Intelligence in Education, Italy, 2025 (Accepted).</li>
+          <li>Md Biplob Hosen et al., From Code to Career: Assessing Competitive Programmers for Industry Placement, 2025 IEEE International Conference on Quantum Photonics, Artificial Intelligence, and Networking (QPAIN). (Accepted).</li>
+          <li>Masud, A., Hosen, M.B., Habibullah, M., Anannya, M. and Kaiser, M.S., 2025. Image captioning in Bengali language using visual attention. PloS one, 20(2), p.e0309364.</li>
+          <li>Shahid, S.B., Yousuf, M.A., Hosen, M.B., Ahmed, S. and Ali Moni, M., 2024, October. Bias in Deep Learning Skin Cancer Detection: Parallel Residual Convolution Network Classification and Racial Bias Quantification: Skin Cancer Racial Bias. In Proceedings of the 3rd International Conference on Computing Advancements (pp. 993-1000).</li>
+          <li>Hosen, M.B., Ahmed, S., Akter, B. and Anannya, M., 2024, December. Impact, Causation and Prediction of Socio-Academic and Economic Factors in Exam-centric Student Evaluation Measures using Machine Learning and Causal Analysis. In 2024 13th International Conference on Electrical and Computer Engineering (ICECE) (pp. 321-326). IEEE.</li>
+          <li>Saha, Tapash Kumar, Md. Fazlul Karim Patwary, Faria Ahmed, Md. Biplob Hosen, and Rashed Mazumder. 2024. “Effects of Movement Restrictions on Consumer Consumption”. Journal of Applied Engineering and Technological Science (JAETS) 6 (1):416-28.</li>
+          <li>Anannya, M., Most, S.K., Hosen, M.B., Ahmed, S., Hossain, F. and Kaiser, M.S., 2023. Eligible Personal Loan Applicant Selection using Federated Machine Learning Algorithm. International Journal of Advanced Computer Science and Applications, 14(8).</li>
+          <li>Hosen, M.B., Farin, N.J., Anannya, M., Islam, K. and Uddin, M.S., 2022, May. Quality analysis of pathao ride-sharing service in Bangladesh. In Proceedings of International Joint Conference on Advances in Computational Intelligence: IJCACI 2021 (pp. 597-611). Singapore: Springer Nature Singapore.</li>
+          <li>Hosen, M.B., 2022. Impact of Telecommunication Service Quality in Bangladesh on Online Education during Covid-19. International Journal of Modern Education and Computer Science, 11(6), p.65.</li>
+          <li>Md. Biplob Hosen , Ashfaq Ali Shafin and Mohammad Abu Yousuf, Performance Analysis of Machine Learning Techniques in Network Intrusion Detection, Journal of Information Technology (JUJIT), 11, 2022.</li>
+          <li>M. B. Hosen, M. M. H. Mridha and M. A. Hamza, "Secondary User Channel Selection in Cognitive Radio Network Using Adaptive Method," 2018 3rd International Conference for Convergence in Technology (I2CT), Pune, India, 2018, pp. 1-6, doi: 10.1109/I2CT.2018.8529521.</li>
+        </ul>
+      </article>
+
+      <!-- Professional -->
+      <article id="professional" role="region" aria-label="Professional Experience section">
+        <h1>Professional Experience</h1>
+
         <h2>Teaching Experience</h2>
         <ul>
           <li>Graduate Assistant, IS, UMBC [August 2024 - Continue]</li>
@@ -339,171 +377,95 @@
           <li>Lecturer, CSE, Stamford University Bangladesh [September 2018 – February 2020]</li>
           <li>Lecturer, CSE, Daffodil International University, BD [May 2017 – December 2017]</li>
         </ul>
-      </section>
 
-      <section>
-        <h2>Awarded Research Funding</h2>
-        <ul>
-          <li>JU Research Grant 2023-2024: A Machine Learning Assisted Web Based Student Performance Monitoring System.
-          </li>
-          <li>JU Research Grant 2022-2023: Privacy Leakage Identification and Risk Assessment for Android Applications.
-          </li>
-          <li>JU Research Grant 2021-2022: Evaluating the Impact of Telecommunication Service Quality in Bangladesh on
-            Online Education during Covid-19.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>News & Updates</h2>
-        <ul>
-          <li>Accepted paper: Modeling Socially Constructed Knowledge using Multimodal Machine Learning at AIED 2025,
-            Italy.</li>
-          <li>Accepted paper: Assessing Competitive Programmers for Industry Placement at IEEE QPAIN 2025.</li>
-          <li>Organized workshop on AI literacy in 2023.</li>
-        </ul>
-      </section>
-    </article>
-
-    <!-- Research -->
-    <article id="research" aria-label="Research">
-      <h1>Research Publications</h1>
-      <ul>
-        <li>Md Biplob Hosen et al., Modeling Socially Constructed Knowledge using Multimodal Machine Learning: A Case
-          Study in K-12 AI Literacy Education Classroom, 26th International Conference on Artificial Intelligence in
-          Education, Italy, 2025 (Accepted).</li>
-        <li>Md Biplob Hosen et al., From Code to Career: Assessing Competitive Programmers for Industry Placement, 2025
-          IEEE International Conference on Quantum Photonics, Artificial Intelligence, and Networking (QPAIN).
-          (Accepted).</li>
-        <li>Masud, A., Hosen, M.B., Habibullah, M., Anannya, M. and Kaiser, M.S., 2025. Image captioning in Bengali
-          language using visual attention. PloS one, 20(2), p.e0309364.</li>
-        <li>Shahid, S.B., Yousuf, M.A., Hosen, M.B., Ahmed, S. and Ali Moni, M., 2024, October. Bias in Deep Learning
-          Skin Cancer Detection: Parallel Residual Convolution Network Classification and Racial Bias Quantification:
-          Skin Cancer Racial Bias. In Proceedings of the 3rd International Conference on Computing Advancements (pp.
-          993-1000).</li>
-        <li>Hosen, M.B., Ahmed, S., Akter, B. and Anannya, M., 2024, December. Impact, Causation and Prediction of
-          Socio-Academic and Economic Factors in Exam-centric Student Evaluation Measures using Machine Learning and
-          Causal Analysis. In 2024 13th International Conference on Electrical and Computer Engineering (ICECE) (pp.
-          321-326). IEEE.</li>
-        <li>Saha, Tapash Kumar, Md. Fazlul Karim Patwary, Faria Ahmed, Md. Biplob Hosen, and Rashed Mazumder. 2024.
-          “Effects of Movement Restrictions on Consumer Consumption”. Journal of Applied Engineering and Technological
-          Science (JAETS) 6 (1):416-28.</li>
-        <li>Anannya, M., Most, S.K., Hosen, M.B., Ahmed, S., Hossain, F. and Kaiser, M.S., 2023. Eligible Personal Loan
-          Applicant Selection using Federated Machine Learning Algorithm. International Journal of Advanced Computer
-          Science and Applications, 14(8).</li>
-        <li>Hosen, M.B., Farin, N.J., Anannya, M., Islam, K. and Uddin, M.S., 2022, May. Quality analysis of pathao
-          ride-sharing service in bangladesh. In Proceedings of International Joint Conference on Advances in
-          Computational Intelligence: IJCACI 2021 (pp. 597-611). Singapore: Springer Nature Singapore.</li>
-        <li>Hosen, M.B., 2022. Impact of Telecommunication Service Quality in Bangladesh on Online Education during
-          Covid-19. International Journal of Modern Education and Computer Science, 11(6), p.65.</li>
-        <li>Md. Biplob Hosen , Ashfaq Ali Shafin and Mohammad Abu Yousuf, Performance Analysis of Machine Learning
-          Techniques in Network Intrusion Detection, Journal of Information Technology (JUJIT), 11, 2022.</li>
-        <li>M. B. Hosen, M. M. H. Mridha and M. A. Hamza, "Secondary User Channel Selection in Cognitive Radio Network
-          Using Adaptive Method," 2018 3rd International Conference for Convergence in Technology (I2CT), Pune, India,
-          2018, pp. 1-6, doi: 10.1109/I2CT.2018.8529521.</li>
-      </ul>
-
-      <h2>Reviewer</h2>
-      <ul>
-        <li>6th International Joint Conference on Advances in Computational Intelligence (IJCACI 2022).</li>
-        <li>IEEE World Conference on Applied Intelligence and Computing (AIC 2022).</li>
-      </ul>
-
-      <h2>Skills Highlight</h2>
-      <ul>
-        <li>Document Preparation System: LaTeX.</li>
-        <li>Programming Language: Python, Java, PHP, JavaScript, C and C++.</li>
-        <li>Language: IELTS-7.0 (Listening: 8.0, Reading: 7.0, Writing: 6.5, Speaking:7.0).</li>
-      </ul>
-    </article>
-
-    <!-- Experience -->
-    <article id="professional" aria-label="Professional Experience">
-      <h1>Professional Experience</h1>
-      <ul>
-        <li>Graduate Assistant, IS, UMBC [August 2024 - Continue]</li>
-        <li>Assistant Professor, IIT, JU, Savar, Dhaka, BD [November 2023 - Continue]</li>
-        <li>Lecturer, IIT, JU, Savar, Dhaka, BD [February 2021 – November 2023]</li>
-        <li>Adjunct Faculty, CSE, Sonargoan University, BD [January 2020 – December 2020]</li>
-        <li>Adjunct Faculty, ICT, Bangladesh University of Professionals [January 2019 – December 2019]</li>
-        <li>Lecturer, CSE, Stamford University Bangladesh [September 2018 – February 2020]</li>
-        <li>Lecturer, CSE, Daffodil International University, BD [May 2017 – December 2017]</li>
-      </ul>
-    </article>
-
-    <!-- Education -->
-    <article id="education" aria-label="Education">
-      <h1>Education</h1>
-      <ul>
-        <li>PhD in Information Systems: 2024-continue, UMBC.</li>
-        <li>M.S. in Information Technology: 2016-2017 (Thesis Group), JU, BD; Result: 3.82 on a scale 4.00 (CGPA).</li>
-        <li>B.Sc. (Hons.) in Information Technology: 2013-2016, JU, BD; Result: 3.81 on a scale of 4.00 (CGPA).</li>
-      </ul>
-    </article>
-
-    <!-- Achievements -->
-    <article id="achievements" aria-label="Achievements & More">
-      <h1>Achievements & More</h1>
-
-      <section>
-        <h2>Scholarships & Awards</h2>
-        <ul>
-          <li>National Science & Technology (N.S.T.) Fellowship (2018) for M.S. Research, BD.</li>
-          <li>Regular Merit-Based Annual Scholarships (2013-2016) from Jahangirnagar University.</li>
-          <li>Education Board Scholarship for Higher Secondary (HSC) Result.</li>
-          <li>Education Board Scholarship for Secondary (SSC) Result.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Training</h2>
-        <ul>
-          <li>Teacher’s Induction Program on Tools for Quality Improvement. Organized by IQAC, Jahangirnagar University.</li>
-          <li>Faculty Training Program Organized by IQAC, Stamford University Bangladesh.</li>
-          <li>Training on Advanced Mobile Game Development Organized by the ICT Division.</li>
-          <li>Foundation of Software Testing & Automation Organized by IIT, Jahangirnagar University.</li>
-          <li>Web Application Development (PHP) Certified by Basis Institute of Training and Management.</li>
-        </ul>
-      </section>
-
-      <section>
         <h2>Supervision</h2>
         <ul>
-          <li>M.S. (2022-2023): Faria Ahmed (Project: Building a Recommendation System through Advanced Customer Segmentation).</li>
-          <li>M.S. (2021-2022): Md. Uthba Bin Anowar Binoy (Project: A Machine Learning Assisted Web Based Student Performance Monitoring System).</li>
-          <li>M.S. (2020-2021): Md. Habibullah (Project: Image and Video Captioning in Bengali Language Using Visual Attention).</li>
-          <li>Student Advisor for different undergraduate academic years.</li>
+          <li>M.S. (2022-2023): Faria Ahmed (Project: Building a Recommendation System through Advanced Customer Segmentation)</li>
+          <li>M.S. (2021-2022): Md. Uthba Bin Anowar Binoy (Project: A Machine Learning Assisted Web Based Student Performance Monitoring System)</li>
+          <li>M.S. (2020-2021): Md. Habibullah (Project: Image and Video Captioning in Bengali Language Using Visual Attention)</li>
+          <li>Student Advisor for different undergraduate academic years</li>
         </ul>
-      </section>
+      </article>
 
-      <section>
-        <h2>Extra-Curricular Activities</h2>
+      <!-- Education -->
+      <article id="education" role="region" aria-label="Education section">
+        <h1>Education</h1>
         <ul>
-          <li>Former House Tutor, Student Residential Hall, Jahangirnagar University.</li>
-          <li>Former Joint Secretary of Jahangirnagar University IT Society (JUITS).</li>
-          <li>Worked at Jahangirnagar University IEEE Student Branch.</li>
-          <li>Worked at Jahangirnagar University Science Club (JUSC).</li>
-          <li>Former Vice-President of Jahangirnagar University Bogra Student Association.</li>
+          <li>PhD in Information Systems: 2024-continue, UMBC.</li>
+          <li>M.S. in Information Technology: 2016-2017 (Thesis Group), JU, BD; Result: 3.82 on a scale 4.00 (CGPA).</li>
+          <li>B.Sc. (Hons.) in Information Technology: 2013-2016, JU, BD; Result: 3.81 on a scale of 4.00 (CGPA).</li>
         </ul>
-      </section>
-    </article>
-  </div>
+      </article>
+
+      <!-- Achievements -->
+      <article id="achievements" role="region" aria-label="Achievements & More section">
+        <h1>Achievements & More</h1>
+
+        <section>
+          <h2>Scholarships & Awards</h2>
+          <ul>
+            <li>National Science & Technology (N.S.T.) Fellowship (2018) for M.S. Research, BD.</li>
+            <li>Regular Merit-Based Annual Scholarships (2013-2016) from Jahangirnagar University.</li>
+            <li>Education Board Scholarship for Higher Secondary (HSC) Result.</li>
+            <li>Education Board Scholarship for Secondary (SSC) Result.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Training</h2>
+          <ul>
+            <li>Teacher’s Induction Program on Tools for Quality Improvement - IQAC, Jahangirnagar University.</li>
+            <li>Faculty Training Program - IQAC, Stamford University Bangladesh.</li>
+            <li>Training on Advanced Mobile Game Development - ICT Division.</li>
+            <li>Foundation of Software Testing & Automation - Institute of Information Technology, Jahangirnagar University.</li>
+            <li>Web Application Development (PHP) - Basis Institute of Training and Management.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Reviewer</h2>
+          <ul>
+            <li>6th International Joint Conference on Advances in Computational Intelligence (IJCACI 2022)</li>
+            <li>IEEE World Conference on Applied Intelligence and Computing (AIC 2022)</li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- Misc -->
+      <article id="misc" role="region" aria-label="Miscellaneous section">
+        <h1>Miscellaneous</h1>
+        <section>
+          <h2>Extra-Curricular Activities</h2>
+          <ul>
+            <li>Former House Tutor, Student Residential Hall, Jahangirnagar University.</li>
+            <li>Former Joint Secretary of Jahangirnagar University IT Society (JUITS).</li>
+            <li>Worked at Jahangirnagar University IEEE Student Branch.</li>
+            <li>Worked at Jahangirnagar University Science Club (JUSC).</li>
+            <li>Former Vice-president of Jahangirnagar University Bogra Student Association.</li>
+          </ul>
+        </section>
+      </article>
+    </div>
+  </main>
 
   <script>
-    // JS for switching sections
-    const buttons = document.querySelectorAll('.navbar-link');
-    const articles = document.querySelectorAll('article');
+    // Simple navigation tab switching
+    const buttons = document.querySelectorAll(".navbar-link");
+    const articles = document.querySelectorAll("article");
 
-    buttons.forEach((button) => {
-      button.addEventListener('click', () => {
-        buttons.forEach((btn) => btn.classList.remove('active'));
-        articles.forEach((article) => article.classList.remove('active'));
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        // Remove active from buttons and articles
+        buttons.forEach((b) => b.classList.remove("active"));
+        articles.forEach((art) => art.classList.remove("active"));
 
-        button.classList.add('active');
-        document.getElementById(button.dataset.section).classList.add('active');
+        // Activate clicked button and corresponding article
+        btn.classList.add("active");
+        const section = btn.getAttribute("data-section");
+        document.getElementById(section).classList.add("active");
       });
     });
   </script>
-
 </body>
 
 </html>
