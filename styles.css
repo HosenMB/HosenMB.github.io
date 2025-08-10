@@ -1,16 +1,25 @@
 body {
+  font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
-  display: flex;
+  padding: 0;
+  background: #f9f9f9;
+  color: #222;
 }
 
+main {
+  display: flex;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: auto;
+  background: white;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Sidebar */
 aside.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 260px;
-  height: 100vh;
   background: #002f6c;
   color: #fff;
   padding: 20px;
@@ -18,85 +27,233 @@ aside.sidebar {
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  overflow-y: auto;
-  z-index: 15;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
 }
 
-aside.sidebar h2 {
+aside.sidebar img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #fff;
+}
+
+aside.sidebar .name {
+  font-size: 1.6rem;
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+}
+
+aside.sidebar .title {
+  font-size: 0.9rem;
+  margin: 5px 0 20px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.3;
+  color: #ddd;
+}
+
+aside.sidebar .contact-info {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+aside.sidebar button.cv-button {
+  background: #0053a6;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s ease;
+  width: 100%;
+  justify-content: center;
+}
+
+aside.sidebar button.cv-button:hover {
+  background: #003f82;
+}
+
+aside.sidebar ul.social-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  width: 100%;
+}
+
+aside.sidebar ul.social-list li a {
+  color: white;
+  font-size: 1.3rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+aside.sidebar ul.social-list li a:hover {
+  color: #89c2ff;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 260px;
+  padding: 30px 40px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-y: auto;
+  width: calc(100% - 260px);
+}
+
+nav.navbar {
+  margin-bottom: 30px;
+  border-bottom: 2px solid #eee;
+}
+
+nav.navbar ul.navbar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+nav.navbar ul.navbar-list li a.navbar-link {
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #222;
+  padding: 8px 0;
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+  transition: border-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
+}
+
+nav.navbar ul.navbar-list li a.navbar-link.active,
+nav.navbar ul.navbar-list li a.navbar-link:hover {
+  border-bottom-color: #0053a6;
+  color: #0053a6;
+  outline: none;
+}
+
+h1 {
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #003366;
+}
+
+h2 {
+  font-weight: 500;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  color: #004080;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 4px;
+}
+
+p, li {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+ul {
+  padding-left: 20px;
   margin-top: 0;
 }
 
-aside.sidebar nav a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  margin: 10px 0;
+#home .overview {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #555;
+  margin-bottom: 25px;
+  text-align: center;
+  line-height: 1.4;
 }
 
-aside.sidebar nav a.active {
+#home .news {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #333;
+}
+
+#home .news ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#home .news ul li {
+  margin-bottom: 12px;
+  padding-left: 15px;
+  position: relative;
+}
+
+#home .news ul li::before {
+  content: "•";
+  color: #0053a6;
   font-weight: bold;
-  text-decoration: underline;
+  position: absolute;
+  left: 0;
 }
 
-.main-content {
-  margin-left: 260px;
-  height: 100vh;
-  overflow-y: auto;
-  padding: 20px;
-  box-sizing: border-box;
-  flex: 1;
+#home .news ul li .date {
+  font-weight: 600;
+  color: #0053a6;
+  margin-right: 8px;
 }
 
-/* Sticky navbar inside main content */
-.main-content nav.navbar {
-  position: sticky;
-  top: 0;
-  background: white;
-  z-index: 10;
-  border-bottom: 2px solid #eee;
-  padding: 10px;
+ion-icon {
+  vertical-align: middle;
 }
 
-/* Sidebar toggle button - hidden on desktop */
-.sidebar-toggle {
-  display: none;
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  background: #002f6c;
-  border: none;
-  color: white;
-  padding: 8px 12px;
-  font-size: 1.2rem;
-  border-radius: 4px;
-  cursor: pointer;
-  z-index: 20;
-}
-
+/* Responsive */
 @media (max-width: 768px) {
-  /* Show toggle button */
-  .sidebar-toggle {
-    display: block;
-  }
-
-  /* Sidebar hidden by default on mobile */
   aside.sidebar {
-    left: -260px;
-    transition: left 0.3s ease;
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
   }
 
-  aside.sidebar.active {
-    left: 0;
+  aside.sidebar img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 0;
+  }
+
+  aside.sidebar .name,
+  aside.sidebar .title,
+  aside.sidebar .contact-info,
+  aside.sidebar button.cv-button,
+  aside.sidebar ul.social-list {
+    display: none;
   }
 
   .main-content {
-    margin-left: 0 !important;
-    width: 100% !important;
-    transition: margin-left 0.3s ease;
+    margin-left: 0;
+    width: 100%;
+    padding: 20px;
   }
 
-  .main-content.sidebar-active {
-    margin-left: 260px !important;
-    width: calc(100% - 260px) !important;
+  nav.navbar ul.navbar-list {
+    justify-content: center;
   }
 }
