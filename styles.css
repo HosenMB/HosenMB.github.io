@@ -55,12 +55,8 @@ main {
   display: flex;
   align-items: flex-start;
   min-height: 100vh;
-  max-width: 1200px;
-  margin: auto;
+  width: 100%;
   background: var(--bg-card);
-  box-shadow: 0 0 12px var(--shadow);
-  border-radius: 8px;
-  overflow: hidden;
 }
 
 /* ---------- Sidebar ---------- */
@@ -155,7 +151,8 @@ aside.sidebar ul.social-list li a:hover { color: var(--accent-light); }
 .main-content {
   flex: 1 1 auto;
   min-width: 0;
-  padding: 30px 40px;
+  max-width: 1080px;
+  padding: 30px 48px;
   min-height: 100vh;
 }
 
