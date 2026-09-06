@@ -1,37 +1,83 @@
-/* General Layout */
+/* ============================================================
+   Md Biplob Hosen — personal site
+   Shared stylesheet (light + dark, mobile-first responsive)
+   ============================================================ */
+
+:root {
+  --bg-page: #f4f6f9;
+  --bg-card: #ffffff;
+  --text: #222222;
+  --text-muted: #555555;
+  --sidebar-bg: #002f6c;
+  --sidebar-text: #ffffff;
+  --sidebar-title: #dbe4f0;
+  --sidebar-muted: #c3cede;
+  --accent: #0053a6;
+  --accent-hover: #003f82;
+  --accent-light: #89c2ff;
+  --border: #e2e6ea;
+  --heading: #003366;
+  --heading2: #004080;
+  --shadow: rgba(0, 0, 0, 0.10);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: #0d1117;
+    --bg-card: #161b22;
+    --text: #e6edf3;
+    --text-muted: #9da7b3;
+    --sidebar-bg: #0a2450;
+    --sidebar-text: #f2f6fb;
+    --sidebar-title: #b9c7dc;
+    --sidebar-muted: #aab7c8;
+    --accent: #4d94ff;
+    --accent-hover: #6aa8ff;
+    --accent-light: #9ecbff;
+    --border: #2a3038;
+    --heading: #79b8ff;
+    --heading2: #a6c8ff;
+    --shadow: rgba(0, 0, 0, 0.55);
+  }
+}
+
+* { box-sizing: border-box; }
+
 body {
   font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
-  color: #222;
+  background: var(--bg-page);
+  color: var(--text);
 }
 
 main {
   display: flex;
+  align-items: flex-start;
   min-height: 100vh;
   max-width: 1200px;
   margin: auto;
-  background: white;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  background: var(--bg-card);
+  box-shadow: 0 0 12px var(--shadow);
   border-radius: 8px;
   overflow: hidden;
 }
 
-/* Sidebar */
+/* ---------- Sidebar ---------- */
 aside.sidebar {
+  flex: 0 0 260px;
   width: 260px;
-  background: #002f6c;
-  color: #fff;
-  padding: 20px;
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box;
-  position: fixed;
+  text-align: center;
+  position: sticky;
   top: 0;
-  left: 0;
   height: 100vh;
+  overflow-y: auto;
 }
 
 aside.sidebar img {
@@ -40,141 +86,241 @@ aside.sidebar img {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 15px;
-  border: 3px solid #fff;
+  border: 3px solid rgba(255, 255, 255, 0.85);
 }
 
 aside.sidebar .name {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   margin: 0;
   font-weight: 600;
-  text-align: center;
+  color: var(--sidebar-text);
 }
 
 aside.sidebar .title {
   font-size: 0.9rem;
-  margin: 5px 0 20px;
+  margin: 6px 0 18px;
   font-weight: 400;
-  text-align: center;
-  color: #ddd;
+  line-height: 1.35;
+  color: var(--sidebar-title);
 }
 
 aside.sidebar .contact-info {
   font-size: 0.8rem;
-  text-align: center;
-  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: var(--sidebar-muted);
 }
+
+aside.sidebar .contact-info a { color: var(--accent-light); }
 
 aside.sidebar button.cv-button {
-  background: #0053a6;
+  background: var(--accent);
   border: none;
-  color: white;
+  color: #fff;
   padding: 10px 15px;
   font-size: 1rem;
+  font-family: inherit;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   width: 100%;
+  justify-content: center;
+  transition: background 0.25s ease;
 }
 
-aside.sidebar button.cv-button:hover {
-  background: #003f82;
-}
+aside.sidebar button.cv-button:hover { background: var(--accent-hover); }
 
 aside.sidebar ul.social-list {
   list-style: none;
   padding: 0;
-  margin-top: 30px;
+  margin-top: 26px;
   display: flex;
-  gap: 15px;
+  gap: 18px;
+  justify-content: center;
+  width: 100%;
 }
 
 aside.sidebar ul.social-list li a {
-  color: white;
-  font-size: 1.3rem;
+  color: #fff;
+  font-size: 1.4rem;
   text-decoration: none;
+  transition: color 0.25s ease;
 }
 
-aside.sidebar ul.social-list li a:hover {
-  color: #89c2ff;
-}
+aside.sidebar ul.social-list li a:hover { color: var(--accent-light); }
 
-/* Main Content */
+/* ---------- Main content ---------- */
 .main-content {
-  margin-left: 260px;
+  flex: 1 1 auto;
+  min-width: 0;
   padding: 30px 40px;
   min-height: 100vh;
-  box-sizing: border-box;
-  overflow-y: auto;
-  width: calc(100% - 260px);
 }
 
+/* ---------- Navbar ---------- */
 nav.navbar {
   margin-bottom: 30px;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid var(--border);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 6px;
+  font-size: 1.6rem;
+  padding: 4px 10px;
+  cursor: pointer;
+  align-items: center;
 }
 
 nav.navbar ul.navbar-list {
   list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  gap: 20px;
+  gap: 22px;
+  flex-wrap: wrap;
 }
 
 nav.navbar ul.navbar-list li a.navbar-link {
   font-size: 1.05rem;
   font-weight: 600;
-  color: #222;
+  cursor: pointer;
+  color: var(--text);
+  padding: 8px 0;
   border-bottom: 3px solid transparent;
   text-decoration: none;
+  transition: border-color 0.25s ease, color 0.25s ease;
+  display: inline-block;
 }
 
 nav.navbar ul.navbar-list li a.navbar-link.active,
 nav.navbar ul.navbar-list li a.navbar-link:hover {
-  border-bottom-color: #0053a6;
-  color: #0053a6;
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+  outline: none;
 }
 
-/* Home Overview */
+/* ---------- Content typography ---------- */
+h1 {
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--heading);
+}
+
+h2 {
+  font-weight: 500;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  color: var(--heading2);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 4px;
+}
+
+p, li {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+article ul { padding-left: 20px; margin-top: 0; }
+
 #home .overview {
-  font-size: 0.9rem;
-  color: #555;
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--text-muted);
   margin-bottom: 25px;
   text-align: center;
+  line-height: 1.5;
 }
 
-#home .news ul {
-  list-style-type: none;
-  padding-left: 0;
-}
+#home .news { font-size: 0.95rem; color: var(--text); }
+#home .news ul { list-style: none; padding-left: 0; }
 
 #home .news ul li {
   margin-bottom: 12px;
-  padding-left: 15px;
+  padding-left: 18px;
   position: relative;
 }
 
 #home .news ul li::before {
-  content: "•";
-  color: #0053a6;
+  content: "\2022";
+  color: var(--accent);
+  font-weight: bold;
   position: absolute;
   left: 0;
 }
 
 #home .news ul li .date {
   font-weight: 600;
-  color: #0053a6;
+  color: var(--accent);
+  margin-right: 8px;
 }
 
-/* Responsive */
+ion-icon { vertical-align: middle; }
+
+/* ============================================================
+   Responsive — tablet / phone
+   Sidebar stacks on top; ALL info stays visible; nav collapses
+   into an accessible hamburger menu.
+   ============================================================ */
 @media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    min-height: 0;
+    border-radius: 0;
+  }
+
   aside.sidebar {
-    position: relative;
+    position: static;
     width: 100%;
+    flex: 0 0 auto;
     height: auto;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 10px;
+    padding: 22px 16px;
   }
+
+  aside.sidebar img { width: 120px; height: 120px; }
+  aside.sidebar button.cv-button { width: auto; padding: 10px 22px; }
+
   .main-content {
-    margin-left: 0;
+    padding: 20px 18px;
+    min-height: 0;
+  }
+
+  .menu-toggle { display: inline-flex; margin-bottom: 12px; }
+
+  nav.navbar { margin-bottom: 22px; }
+
+  nav.navbar ul.navbar-list {
+    display: none;
+    flex-direction: column;
+    gap: 0;
     width: 100%;
   }
+
+  nav.navbar ul.navbar-list.open { display: flex; }
+
+  nav.navbar ul.navbar-list li a.navbar-link {
+    display: block;
+    padding: 12px 6px;
+    border-bottom: 1px solid var(--border);
+    border-left: 3px solid transparent;
+  }
+
+  nav.navbar ul.navbar-list li a.navbar-link.active,
+  nav.navbar ul.navbar-list li a.navbar-link:hover {
+    border-bottom-color: var(--border);
+    border-left-color: var(--accent);
+  }
+
+  p, li { text-align: left; }
+}
+
+@media (max-width: 400px) {
+  aside.sidebar img { width: 100px; height: 100px; }
+  .main-content { padding: 16px 14px; }
 }
